@@ -15,4 +15,15 @@ class CharactersController < ApplicationController
         render json: @character
     end
 
+    def create 
+        @character = Character.create(name: params[:name], image: params[:image], starbux: 5, marsbar: 2, user_id: params[:user_id])
+        render json: @character
+    end
+
+    def edit 
+        @character = Character.find_by(id: params[:id])
+        @character.update(current_state: params[:current_state])
+        render json: @character
+    end
+
 end

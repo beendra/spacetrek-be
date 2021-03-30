@@ -13,8 +13,7 @@ class UsersController < ApplicationController
     def show
         @user = User.find_by(id: params[:id])
         @characters = @user.characters
-        # render json: @user
-        render json: @characters 
+        render json: @characters  
     end
 
 end
