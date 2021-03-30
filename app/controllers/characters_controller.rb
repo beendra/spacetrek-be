@@ -20,10 +20,16 @@ class CharactersController < ApplicationController
         render json: @character
     end
 
-    def edit 
+    def update 
         @character = Character.find_by(id: params[:id])
-        @character.update(current_state: params[:current_state])
+        @character.update(current_state: params[:current_state], lives: params[:lives], marsbar: params[:marsbar], starbux: params[:starbux])
         render json: @character
     end
+
+    def destroy
+        @character = Character.find_by(id: params[:id])
+        @character.destroy
+        render json: @character
+    end 
 
 end
