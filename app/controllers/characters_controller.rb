@@ -16,7 +16,8 @@ class CharactersController < ApplicationController
     end
 
     def create 
-        @character = Character.create(name: params[:name], image: params[:image], starbux: 5, marsbar: 2, user_id: params[:user_id])
+        @character = Character.create(name: params[:name], image: params[:image], starbux: params[:starbux], marsbar: params[:marsbar], user_id: params[:user_id], current_state: params[:current_state], lives: params[:lives])
+        
         render json: @character
     end
 
