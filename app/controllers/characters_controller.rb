@@ -1,5 +1,5 @@
 class CharactersController < ApplicationController
-    # before_action :char_params, :only => [:update]
+    
     def index
         @characters = Character.all
         render json: @characters
@@ -24,7 +24,6 @@ class CharactersController < ApplicationController
     def update 
         @character = Character.find_by(id: params[:id])
         @character.update(current_state: params[:current_state], lives: params[:lives], marsbar: params[:marsbar], starbux: params[:starbux])
-        byebug
         render json: @character
     end
 
@@ -34,10 +33,6 @@ class CharactersController < ApplicationController
         render json: @character
     end 
 
-    # private
     
-    # def char_params
-        
-    # end
 
 end
