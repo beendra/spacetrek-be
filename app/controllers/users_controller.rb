@@ -16,4 +16,11 @@ class UsersController < ApplicationController
         render json: @characters  
     end
 
+    def destroy
+        byebug
+        @user = User.find_by(id: params[:id])
+        @user.characters.destroy_all
+        @user.destroy
+    end 
+
 end
